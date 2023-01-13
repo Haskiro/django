@@ -34,7 +34,7 @@ Web app for listerning music
 
 ## Quick start
 
-To run the projects you need to create virtual environment:
+To run the project you need to create virtual environment:
 ```
 python3 -m venv env
 ```
