@@ -26,7 +26,7 @@ Web app for listerning music
 -  _/artists_ - list of artists.
 -  _/genres_ - list of genres.
 -  _/tracks_ - list of tracks.
--  _/albums_ - list of users.
+-  _/albums_ - list of albums.
 -  _/auth_ - list of users.
 -  _/[item]/:id_ - single [item] data.
 -  _/auth/login_ - login action (POST method). Response \- access token 
@@ -38,7 +38,7 @@ To run the projects you need to create virtual environment:
 ```
 python3 -m venv env
 ```
-And activate it:
+And activate it: <br />
 for Linux and MacOS
 ```
 source venv/bin/activate
