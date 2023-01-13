@@ -18,10 +18,12 @@ Web app for listerning music
 -  Django REST Framework
 -  django-cors-headers
 -  django-environ
+-  SQLite3
 
 **Url routes**
 
--  _/api_ - list of available endpoints
+-  _/api_ - list of available endpoints.
+-  _/admin_ - admin panel.
 -  _/playlists_ - list of ready playlists.
 -  _/artists_ - list of artists.
 -  _/genres_ - list of genres.
@@ -29,8 +31,8 @@ Web app for listerning music
 -  _/albums_ - list of albums.
 -  _/auth_ - list of users.
 -  _/[item]/:id_ - single [item] data.
--  _/auth/login_ - login action (POST method). Response \- access token 
--  _/auth/register_ - registration action (POST method). Response \- access token 
+-  _/auth/login_ - login action (POST method). Response \- access token.
+-  _/auth/register_ - registration action (POST method). Response \- access token.
 
 ## Quick start
 
