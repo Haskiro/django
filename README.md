@@ -36,7 +36,7 @@ Web app for listerning music
 
 To run the project you need to create virtual environment:
 ```
-python3 -m venv env
+python3 -m venv venv
 ```
 And activate it: <br />
 for Linux and MacOS
