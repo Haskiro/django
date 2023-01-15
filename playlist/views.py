@@ -6,3 +6,8 @@ from rest_framework.viewsets import ModelViewSet
 class PlaylistViewSet(ModelViewSet):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerializer
+
+# class PlaylistPagination(PageNumberPagination):
+#     page_size = 100
+#     page_size_query_param = 'page_size'
+#     max_page_size = 1000
