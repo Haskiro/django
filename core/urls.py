@@ -18,10 +18,12 @@ from django.urls import path, include
 from core.routers import router
 from django.conf import settings
 from django.conf.urls.static import static
+from track.views import GetLatestTwoYearsTracksAPIView
 
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls),
+    path('api/tracks/latest/', GetLatestTwoYearsTracksAPIView.as_view()),
     path('api/', include(router.urls)),
 
 ]

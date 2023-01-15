@@ -8,6 +8,7 @@ from track.views import TrackViewSet
 from playlist.views import PlaylistViewSet
 from genre.views import GenreViewSet
 
+
 router = DefaultRouter()
  
 router.register('artists', ArtistViewSet)

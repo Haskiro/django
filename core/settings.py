@@ -44,11 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #3rd-party apps
     'rest_framework',
     'corsheaders',
 
-    #Custom apps
     'authentication',
     'artist',
     'genre',
@@ -56,7 +54,9 @@ INSTALLED_APPS = [
     'track',
     'playlist',
     'simple_history',
+
     'import_export',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
