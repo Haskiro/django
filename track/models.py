@@ -1,7 +1,6 @@
-from pydoc import describe
-from tabnanny import verbose
 from django.db import models
 from artist.models import Artist
+from simple_history.models import HistoricalRecords
 
 # Create your models here.
 class Track(models.Model):
@@ -10,6 +9,7 @@ class Track(models.Model):
     audio_file = models.FileField(verbose_name='Файл', upload_to='tracks/audio')
     cover = models.ImageField(verbose_name='Обложка', upload_to='tracks/covers')
     released_at = models.DateField(verbose_name='Дата выпуска', auto_now=False, auto_now_add=False)
+    history = HistoricalRecords()
 
     def __str__(self):
         return self.title
