@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'album',
     'track',
     'playlist',
-    'simple_history'
+    'simple_history',
+    'import_export',
 ]
 
 MIDDLEWARE = [
