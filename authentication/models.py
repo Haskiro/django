@@ -1,6 +1,7 @@
 from django.db import models
 from simple_history.models import HistoricalRecords
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from track.models import Track
 
 from authentication.managers import UserManager
 
@@ -29,3 +30,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta: 
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
+
+class UserFavorite(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    tracks = models.ManyToManyField(Track, related_name='favorite_tracks')
+
+    def __str__(self):
+        return f"{self.user.first_name}'s Favorites"
+
+    class Meta:
+        verbose_name = 'Избранное'
+        verbose_name_plural = 'Избранное'

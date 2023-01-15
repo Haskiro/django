@@ -7,6 +7,7 @@ from authentication.views import UserViewSet
 from track.views import TrackViewSet
 from playlist.views import PlaylistViewSet
 from genre.views import GenreViewSet
+from track.views import ToggleFavoriteTrackViewSet
 
 
 router = DefaultRouter()
@@ -15,5 +16,6 @@ router.register('artists', ArtistViewSet)
 router.register('albums', AlbumViewSet)
 router.register('genres', GenreViewSet)
 router.register('playlists', PlaylistViewSet)
+router.register('tracks/toggle-favorite', ToggleFavoriteTrackViewSet, basename='tracks-userfavorite')
 router.register('tracks', TrackViewSet)
 router.register('auth', UserViewSet)
