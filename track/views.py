@@ -10,13 +10,15 @@ from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.permissions import IsAuthenticated
 from authentication.models import UserFavorite
+from rest_framework.filters import SearchFilter
 
 # Create your views here.
 class TrackViewSet(ModelViewSet):
     queryset = Track.objects.all()
     serializer_class = TrackSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['title']
+    filterset_fields = ['artist']
+    search_fields = ['title']
+    filter_backends = (SearchFilter, DjangoFilterBackend)
 
 class GetLatestTwoYearsTracksAPIView(generics.ListAPIView):
     queryset = Track.objects.filter(Q(released_at__year="2023") | Q(released_at__year="2022"))

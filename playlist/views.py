@@ -2,6 +2,7 @@ from playlist.serializers import PlaylistSerializer
 from playlist.models import Playlist
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.filters import SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 
@@ -15,5 +16,7 @@ class PlaylistViewSet(ModelViewSet):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerializer
     pagination_class = PlaylistViewSetPagination
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['title']
+    filterset_fields = ['tracks']
+    search_fields = ['title']
+    filter_backends = (SearchFilter, DjangoFilterBackend)
+    
