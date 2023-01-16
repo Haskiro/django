@@ -70,24 +70,4 @@ class ToggleFavoriteTrackViewSet(CreateModelMixin, ListModelMixin, RetrieveModel
         user_favs.save()
         return Response({'message': 'success'})
 
-    def destroy(self, request):
-        user = request.user
-        if 'trackId' not in request.data or \
-                len(request.data.get('trackId')) < 1:
-            raise ParseError({'message': 'trackId must not be empty'})
-
-        pk = int(request.data.get('trackId'))
-        user_favs = UserFavorite.objects.get(user=user)
-
-        try:
-            track = self.model.objects.get(pk=pk)
-        except self.model.DoesNotExist:
-            raise NotFound({'message': 'Track was not found'})
-
-        if track not in user_favs.tracks.all():
-            user_favs.tracks.add(track)
-        else:
-            user_favs.tracks.remove(track)
-
-        user_favs.save()
-        return Response({'message': 'success'})
+    
