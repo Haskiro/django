@@ -2,6 +2,7 @@ from django.contrib import admin
 from genre.models import Genre
 from import_export.admin import ImportExportModelAdmin
 from import_export import resources
+
 class GenreResource(resources.ModelResource): 
     class Meta:
         model = Genre

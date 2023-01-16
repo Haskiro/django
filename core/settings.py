@@ -14,6 +14,8 @@ from pathlib import Path
 from pickle import TRUE
 import environ
 from datetime import timedelta
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +33,23 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
+
+#Sentry
+sentry_sdk.init(
+    dsn="https://2424e6dde9ec4e6d9a9eaae643d0dece@o4504513780711424.ingest.sentry.io/4504513799847936",
+    integrations=[
+        DjangoIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
 
 
 # Application definition
@@ -53,6 +72,7 @@ INSTALLED_APPS = [
     'album',
     'track',
     'playlist',
+    
     'simple_history',
 
     'import_export',
