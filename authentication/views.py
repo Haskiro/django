@@ -6,6 +6,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
+from django.urls import reverse, reverse_lazy
 
 
 
@@ -78,8 +79,8 @@ class UserViewSet(ModelViewSet):
         
 
     @action(methods=['DELETE'], detail=False,
-            permission_classes=[IsAuthenticated], url_path='delete')
-    def user_delete(self, request):
+            permission_classes=[IsAuthenticated])
+    def delete(self, request):
         user = request.user
         data = self.serializer_class(user).data
         instance = User.objects.get(email=data["email"])

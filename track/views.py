@@ -4,7 +4,7 @@ from track.models import Track
 from django.db.models import Q
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin, DestroyModelMixin
+from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError
@@ -24,7 +24,7 @@ class GetLatestTwoYearsTracksAPIView(generics.ListAPIView):
     queryset = Track.objects.filter(Q(released_at__year="2023") | Q(released_at__year="2022"))
     serializer_class = TrackSerializer
 
-class ToggleFavoriteTrackViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin, DestroyModelMixin, GenericViewSet):
+class ToggleFavoriteTrackViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin, GenericViewSet):
     permission_classes = [IsAuthenticated]
     queryset = UserFavorite.objects.all()
     serializer_class = TrackSerializer
@@ -55,6 +55,7 @@ class ToggleFavoriteTrackViewSet(CreateModelMixin, ListModelMixin, RetrieveModel
             raise ParseError({'message': 'trackId must not be empty'})
 
         pk = int(request.data.get('trackId'))
+        UserFavorite
         user_favs = UserFavorite.objects.get(user=user)
 
         try:
